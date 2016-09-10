@@ -83,7 +83,7 @@ Connect is used when the client wants to initiate a connection with a server. Th
 
 ```json
 {
-    "status": "approved"
+    "status": "approved",
     "uid": "0xFAB233"
 }
 ```
