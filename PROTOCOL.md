@@ -1,6 +1,6 @@
 # Protocol
 
-This is the technical protocol definiton of Gnamma, if you're interested in a more general overview go to the [`README.md`](README.md) file.
+This is the technical protocol definiton of Gnamma, if you're interested in a more general overview go to the [`README.md`](README.md) file. Everything in this document is under rapid development: here be dragons.
 
 ## Server
 
@@ -24,3 +24,66 @@ The client is used to connect to a server in order to play a Gnamma experience. 
   - Keep environment in sync with server
   - *Loop until exit requested*
 4. Disconnect
+
+## Specification
+
+Welcome to the actual specification section of the document. Again, note that this document is **not** finished.
+
+### Contents
+
+1. Ping
+2. Connect
+
+### Ping
+
+Ping is used for testing a connection between a client and a server. The information shared in a ping should be enough to establish a basic idea about:
+
+- What the server is
+- Multiplayer ability
+- Connection quality
+
+#### Request
+
+```json
+{
+    "command": "ping",
+    "sent_at": 0
+}
+```
+
+#### Response
+
+```json
+{
+    "server": "127.0.0.1",
+    "name": "Courtyard",
+    "description": "A place to meet and hang out with new friends",
+    "receieved_at": 0,
+    "rules": {
+        "pvp": true,
+        "multiplayer": true,
+    }
+}
+```
+
+### Connect
+
+Connect is used when the client wants to initiate a connection with a server. The server will respond with a unique ID, which should be used by the client to create the long-term connection with the client.
+
+
+#### Request
+
+```json
+{
+    "command": "connect"
+}
+```
+
+#### Response
+
+```json
+{
+    "status": "approved"
+    "uid": "0xFAB233"
+}
+```
