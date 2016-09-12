@@ -36,13 +36,9 @@ Welcome to the actual specification section of the document. Again, note that th
 
 ### Ping
 
-Ping is used for testing a connection between a client and a server. The information shared in a ping should be enough to establish a basic idea about:
+Ping is used for testing a connection between a client and a server.
 
-- What the server is
-- Multiplayer ability
-- Connection quality
-
-#### Request
+#### Payload
 
 ```json
 {
@@ -51,39 +47,32 @@ Ping is used for testing a connection between a client and a server. The informa
 }
 ```
 
-#### Response
+The server should respond with a [pong](#pong).
+
+### Pong
+
+Pong is the response issued by the server to a [ping](#ping). Using the information in this request, the client can figure out what the network latency is.
+
+#### Payload
 
 ```json
 {
-    "server": "127.0.0.1",
-    "name": "Courtyard",
-    "description": "A place to meet and hang out with new friends",
-    "receieved_at": 0,
-    "rules": {
-        "pvp": true,
-        "multiplayer": true,
-    }
+    "command": "pong",
+    "sent_at": 1,
+    "received_at": 0
 }
 ```
 
-### Connect
+### Connect Request
 
-Connect is used when the client wants to initiate a connection with a server. The server will respond with a unique ID, which should be used by the client to create the long-term connection with the client.
+Connect is used when the client wants to initiate a connection with a server.
 
-
-#### Request
-
-```json
-{
-    "command": "connect"
-}
-```
-
-#### Response
+#### Payload
 
 ```json
 {
-    "status": "approved",
-    "uid": "0xFAB233"
+    "command": "connect_request",
+    "sent_at": 0,
+    "username": "paked"
 }
 ```
