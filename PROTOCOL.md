@@ -76,3 +76,19 @@ Connect is used when the client wants to initiate a connection with a server.
     "username": "paked"
 }
 ```
+
+The server will respond with a [connect verdict](#connect-verdict)
+
+### Connect Verdict
+
+Connect Verdict informs the client of whether or not they are allowed to proceed into the server.
+
+#### Payload
+
+```json
+{
+    "command": "connect_verdict",
+    "sent_at": 1,
+    "can_proceed": true,
+    "message": "Congrats! You've joined the server."
+}
