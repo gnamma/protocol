@@ -34,7 +34,9 @@ Welcome to the actual specification section of the protocol. Again, note that th
 1. [Ping](#ping)
 2. [Pong](#pong)
 3. [Connect Request](#connect-request)
-4. [Conncet Verdict](#connect-verdict)
+4. [Connect Verdict](#connect-verdict)
+5. [Environment Request](#environment-request)
+6. [Environment Package](#environment-package)
 
 ### Ping
 
