@@ -27,16 +27,18 @@ The client is used to connect to a server in order to play a Gnamma experience. 
 
 ## Specification
 
-Welcome to the actual specification section of the document. Again, note that this document is **not** finished.
+Welcome to the actual specification section of the protocol. Again, note that this document is **not** finished.
 
 ### Contents
 
-1. Ping
-2. Connect
+1. [Ping](#ping)
+2. [Pong](#pong)
+3. [Connect Request](#connect-request)
+4. [Conncet Verdict](#connect-verdict)
 
 ### Ping
 
-Ping is used for testing a connection between a client and a server.
+Ping is used for verifying that the connection between a client and a server is working as intended.
 
 #### Payload
 
@@ -47,11 +49,11 @@ Ping is used for testing a connection between a client and a server.
 }
 ```
 
-The server should respond with a [pong](#pong).
+The server will respond with a [pong](#pong).
 
 ### Pong
 
-Pong is the response issued by the server to a [ping](#ping). Using the information in this request, the client can figure out what the network latency is.
+Pong is the response issued by the server when sent a [ping](#ping). If the client receives a pong, then it can be assumed that the connection is working time. The round trip latency can be found be measuring the delta between the `receieved_at` and `sent_at` fields.
 
 #### Payload
 
