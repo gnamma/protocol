@@ -127,7 +127,7 @@ Environment Package contains information about the world which the experience is
     "sent_at": 1,
     "downloads": {
         "world": "some_hex_value",
-        "glass": "another_hex_value
+        "glass": "another_hex_value"
     },
     "main": "world"
 }
