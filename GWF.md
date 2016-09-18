@@ -4,7 +4,7 @@ A GWF is a file which is used to describe a world's environment to a Gnamma clie
 
 The file format is an XML derivative. The design of GWF is currently very ambiguous, and thus, this file is going to be used to do some mockups of what things *could* look like.
 
-## 13 September 2016
+## 13th September 2016 - HTMLish
 
 ```xml
 <room>
@@ -24,3 +24,19 @@ The file format is an XML derivative. The design of GWF is currently very ambigu
 - Position is provided through the `x`, `y` and `z` attributes
 - Elements (no matter if they are primitive or non primitive) can be put into a group in the `<group>` tag
   - In a group, scale compounds (Absolute scale of a box with scale `0.5` inside a group with scale `3` is `1.5`
+
+## 18th September 2016 - HTML + Sugar
+
+```xml
+<room>
+    <plane name="ground">
+        <box each-corner sit name="corner_{{side}}" scale-y="5"/>
+    </plane>
+</room>
+```
+
+- Same sort of basic XML layout as the previous iteration
+- In order to make construction of composite/complex objects easier should provide a lot of syntactic sugar.
+  - `each-corner` puts one of the element in each corner of the parent
+  - `sit` ensures that the bottom of the element is touching the top of its parent
+  - Can use little templating variables like `{{side}}` and `{{parent.name}}` to better customise the values of the object.
