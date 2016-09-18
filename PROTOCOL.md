@@ -67,7 +67,7 @@ Pong is the response issued by the server when sent a [ping](#ping). If the clie
 
 ### Connect Request
 
-Connect is used when the client wants to initiate a connection with a server.
+Connect Request is used when the client wants to initiate a connection with a server.
 
 #### Payload
 
@@ -94,3 +94,41 @@ Connect Verdict informs the client of whether or not they are allowed to proceed
     "can_proceed": true,
     "message": "Congrats! You've joined the server."
 }
+```
+
+### Environment Request
+
+Environment Request is sent by the client when it wants a copy of the [Gnamma World File (GWF)](GWF.md).
+
+#### Payload
+
+```json
+{
+    "command": "environment_request",
+    "sent_at": 0
+}
+```
+
+#### Notes
+
+In the future, the client should probably have some sort of communication where it shares what it already has cached. This way unnecessary downloads can be prevented.
+
+The server will respond with an [Environment Package](#environment-package).
+
+### Environment Package
+
+Environment Package contains information about the world which the experience is providing. It provides the unique identifier for each asset which needs to be downloaded, so they can be retrieved from an asset server.
+
+#### Payload
+
+```json
+{
+    "command": "environment_package",
+    "sent_at": 1,
+    "downloads": {
+        "world": "some_hex_value",
+        "glass": "another_hex_value
+    },
+    "main": "world"
+}
+```
