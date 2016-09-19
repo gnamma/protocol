@@ -18,4 +18,4 @@ You could use Gnamma for pretty much anything. Games, informational "libraries",
 
 ### Can I use my `x` to experience Gnamma?
 
-All connections to Gnamma are made through a client. If your client supports your device, then it should work. The [client being developed by the Gnamma team](https://github.com/gnamma/client) should support most OpenVR devices.
+All connections to Gnamma are made through a client. If your client supports your device, then it will work. The [client being developed by the Gnamma team](https://github.com/gnamma/client) should support most OpenVR devices.
