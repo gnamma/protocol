@@ -37,6 +37,7 @@ Welcome to the actual specification section of the protocol. Again, note that th
 4. [Connect Verdict](#connect-verdict)
 5. [Environment Request](#environment-request)
 6. [Environment Package](#environment-package)
+7. [Asset Request](#asset-request)
 
 ### Ping
 
@@ -127,10 +128,26 @@ Environment Package contains information about the world which the experience is
 {
     "command": "environment_package",
     "sent_at": 1,
-    "downloads": {
+    "asset_keys": {
         "world": "some_hex_value",
         "glass": "another_hex_value"
     },
     "main": "world"
 }
 ```
+
+### Asset Request
+
+Asset Request is sent by the client to initiate the download of a file from the server.
+
+#### Payload
+
+```json
+{
+    "command": "asset_request",
+    "sent_at": 0,
+    "key": "map.gnml"
+}
+```
+
+**The server will not respond with a parsable JSON packet. Instead, the raw file is sent.**
