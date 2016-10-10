@@ -43,6 +43,9 @@ Welcome to the actual specification section of the protocol. Again, note that th
 4. [Connect Verdict](#connect-verdict)
 5. [Environment Request](#environment-request)
 6. [Environment Package](#environment-package)
+7. [Register Node](#register-node)
+8. [Registered Node](#registered-node)
+7. [Update Node](#update-node)
 
 ### Ping
 
@@ -138,5 +141,66 @@ Environment Package contains information about the world which the experience is
         "glass": "another_hex_value"
     },
     "main": "world"
+}
+```
+
+### Register Node
+
+This communication is registers a client's node with the server. A node represents a tracked object, the system by which it is tracked is, however, irrelevant. Exams of this are:
+
+- The HMD of the HTC Vive
+- The HMD of the Oculus Rift
+- The motion controllers of the HTC Vive
+- The motion controllers of the Oculus Rift
+
+While both systems, the Oculus Rift and HTC Vive respectively, have their own very different tracking methods Gnamma is able to work just as effectively with either of them.
+
+#### Payload
+
+```json
+{
+    "command": "register_node",
+    "sent_at": 0,
+    "node": {
+        "type": 2,
+        "position": {"x": 0, "y": 0, "z": 0},
+        "rotation": {"x": 0, "y": 0, "z": 0},
+        "asset": "hand.blend",
+        "label": "arm node"
+    },
+    "pid": 0
+}
+```
+
+The server will respond with a [Registered Node](#registered-node)
+
+### Registered Node
+
+This communication informs the client that a node has been successfully registered.
+
+#### Payload
+
+```json
+{
+    "command": "registered_node",
+    "sent_at": 1,
+    "nid": 0,
+}
+```
+
+### Update Node
+
+This communication is used by both the client and the server, to inform each other of the changes in a node's position or rotation.
+
+#### Payload
+
+```json
+{
+    "command": "update_node",
+    "sent_at": 3,
+    "pid": 0,
+    "nid": 0,
+    "position": {"x": 0, "y": 0, "z": 0},
+    "rotation": {"x": 0, "y": 0, "z": 0}
 }
 ```
