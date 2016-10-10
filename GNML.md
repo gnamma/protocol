@@ -1,8 +1,8 @@
-# Gnamma World File (GWF)
+# Gnamma Markup Language (GNML)
 
-A GWF is a file which is used to describe a world's environment to a Gnamma client. It is *not* used for configuration of the server, and is *not* used for interactions of elements.
+A GWF is a file which is used to describe a world's environment to a Gnamma client. It is *not* used for configuration of the server, and is *not* used for interactions of elements. It is described by the Gnamma Markup Language, which this document is attempting to describe. The file format is an XML derivative. The design of GWF is currently very ambiguous, and thus, this file is going to be used to do some mockups of what things *could* look like.
 
-The file format is an XML derivative. The design of GWF is currently very ambiguous, and thus, this file is going to be used to do some mockups of what things *could* look like.
+You can find a prototype of a GNML parser, known as Gnome, being developed [here](https://github.com/gnamma/gnome).
 
 ## 13th September 2016 - HTMLish
 

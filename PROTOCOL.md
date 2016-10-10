@@ -109,7 +109,7 @@ Connect Verdict informs the client of whether or not they are allowed to proceed
 
 ### Environment Request
 
-Environment Request is sent by the client when it wants a copy of the [Gnamma World File (GWF)](GWF.md).
+Environment Request is sent by the client when it wants a copy of the [GNML file](GNML.md).
 
 #### Payload
 
