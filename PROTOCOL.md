@@ -6,6 +6,12 @@ This is the technical protocol definiton of Gnamma, if you're interested in a mo
 
 The server is responsible for hosting a Gnamma experience. The rules of what player's are allowed to do or see are governed by the server, these rules are defined in config or scripting files. The main role of the server is to provide a link between all of the connected clients, and ensure that the clients are all obeying the logic of the server (that is, the rules defined in the aforementioned config and scripting files).
 
+## Asset Server
+
+The asset server is responsible for serving up assets to clients. It operates in a similar manner to a HTTP server, except working on a lower level and not concerning itself with the specifics of the served files. One of its more complex roles is to ensure the quickest possible loading of the 3D assets needed to make up a VR experience. This is done by caching as much as possible, and transfering files from the closest possibly server to minimise wait times.
+
+You can read more about the asset server in the [`ASSET_SERVER.md`](ASSET_SERVER.MD) file.
+
 ## Client
 
 The client is used to connect to a server in order to play a Gnamma experience. The main role of the client is to render the environment which it receives from the server, and relay the different inputs of the player. Upon connection, the client retrieves a copy of the logic of the server, which is a set of rules detailing what **can** happen in a given experience. This logic is then simulated, to allow the environment to react in real time to the player. At an interval set by the server the client has its own simulation overridden by that of the server. This ensures that all of the clients connected to a server are having the same experience.
@@ -37,7 +43,6 @@ Welcome to the actual specification section of the protocol. Again, note that th
 4. [Connect Verdict](#connect-verdict)
 5. [Environment Request](#environment-request)
 6. [Environment Package](#environment-package)
-7. [Asset Request](#asset-request)
 
 ### Ping
 
@@ -135,19 +140,3 @@ Environment Package contains information about the world which the experience is
     "main": "world"
 }
 ```
-
-### Asset Request
-
-Asset Request is sent by the client to initiate the download of a file from the server.
-
-#### Payload
-
-```json
-{
-    "command": "asset_request",
-    "sent_at": 0,
-    "key": "map.gnml"
-}
-```
-
-**The server will not respond with a parsable JSON packet. Instead, the raw file is sent.**
