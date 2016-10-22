@@ -45,7 +45,9 @@ Welcome to the actual specification section of the protocol. Again, note that th
 6. [Environment Package](#environment-package)
 7. [Register Node](#register-node)
 8. [Registered Node](#registered-node)
-7. [Update Node](#update-node)
+9. [Update Node](#update-node)
+10. [Register All Nodes](#register-all-nodes)
+11. [Join Room](#join-room)
 
 ### Ping
 
