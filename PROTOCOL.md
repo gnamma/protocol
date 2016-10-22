@@ -233,4 +233,30 @@ This communication is sent once a client is ready to join a room. This is usuall
     "sent_at": 2,
     "pid": 0,
 }
-``
+```
+
+### Join Room
+
+Join Room is dispatched to each connected client after a new client sends a [Registered All Nodes](#registered-all-nodes) communication.
+
+#### Payload
+
+```json
+{
+    "command": "join_room",
+    "sent_at": 2,
+    "player": {
+        "username: "parzival",
+        "id": 1,
+        "nodes": [
+            {
+                "type": 2,
+                "position": {"x": 0, "y": 0, "z": 0},
+                "rotation": {"x": 0, "y": 0, "z": 0},
+                "asset": "hand.blend",
+                "label": "arm node"
+            },
+        ]
+    }
+}
+```
