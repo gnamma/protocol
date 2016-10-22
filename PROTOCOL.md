@@ -220,3 +220,17 @@ This communication is used by both the client and the server, to inform each oth
     "rotation": {"x": 0, "y": 0, "z": 0}
 }
 ```
+
+### Registered All Nodes
+
+This communication is sent once a client is ready to join a room. This is usually done after all of the other existing player's have been initialised and the client's nodes have been registered with the server.
+
+#### Payload
+
+```json
+{
+    "command": "registered_all_nodes",
+    "sent_at": 2,
+    "pid": 0,
+}
+``
