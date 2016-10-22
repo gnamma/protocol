@@ -103,7 +103,23 @@ Connect Verdict informs the client of whether or not they are allowed to proceed
     "command": "connect_verdict",
     "sent_at": 1,
     "can_proceed": true,
-    "message": "Congrats! You've joined the server."
+    "message": "Congrats! You've joined the server.",
+    "player_id": 2,
+    "players": [
+        {
+            "username: "parzival",
+            "id": 1,
+            "nodes": [
+                {
+                    "type": 2,
+                    "position": {"x": 0, "y": 0, "z": 0},
+                    "rotation": {"x": 0, "y": 0, "z": 0},
+                    "asset": "hand.blend",
+                    "label": "arm node"
+                },
+            ]
+        }
+    ],
 }
 ```
 
